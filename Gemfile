@@ -48,6 +48,7 @@ group :development, :test do
   gem "vcr"
   gem "shoulda-matchers"
   gem "rubocop"
+  gem "jsonapi-serializer"
 end
 
 group :development do
