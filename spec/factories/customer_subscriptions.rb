@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :customer_subscription do
-    customer { nil }
-    subscription { nil }
+   association :customer, :subscription
   end
 end
