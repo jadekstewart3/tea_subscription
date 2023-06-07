@@ -25,7 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_220033) do
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
-    t.string "string"
     t.string "last_name"
     t.string "email"
     t.string "address"
