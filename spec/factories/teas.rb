@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :tea do
-    title { "MyString" }
-    description { "MyString" }
-    temperature { 1 }
-    brew_time { 1 }
+    title { Faker::Ancient.primordial }
+    description { Faker::GreekPhilosophers.quote }
+    temperature { Faker::Number.within(range: 70..100) }
+    brew_time { Faker::Number.within(range: 1..10) }
   end
 end
