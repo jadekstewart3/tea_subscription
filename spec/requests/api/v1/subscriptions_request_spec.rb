@@ -88,7 +88,6 @@ RSpec.describe "Subscription Request" do
         expect(failed_update[:errors].first[:status]).to eq("400")
         expect(failed_update[:errors].first).to have_key(:title)
         expect(failed_update[:errors].first[:title]).to eq("Validation failed: Subscription must exist, Subscription can't be blank")
-
       end
     end
   end
