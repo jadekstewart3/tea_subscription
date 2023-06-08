@@ -12,7 +12,6 @@ class Customer < ApplicationRecord
                         :last_name,
                         :address,
                         presence: true
-                        
 
   private
   def downcase_email
