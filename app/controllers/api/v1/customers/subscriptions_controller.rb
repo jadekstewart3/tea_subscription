@@ -10,7 +10,9 @@ class Api::V1::Customers::SubscriptionsController < ApplicationController
   end
 
   def update
-    
+    customer_subscription = CustomerSubscription.find_by(subscription_id: params[:id], customer_id: params[:customer_id])
+    customer_subscription.update!(customer_subscription_params)
+    render json: CustomerSubscriptionsSerializer.new(customer_subscription)
   end
 
   private
