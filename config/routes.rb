@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # namespace :api do 
-  #   namespace :v1 do
-  #     resource :customer do 
-  #       get "/subscriptions", to:
-  #     end
-  #   end
-  # end
+  namespace :api do 
+    namespace :v1 do
+      resources :customers, only: :show do 
+        resources :subscriptions, only: [:create, :update], controller: "customers/subscriptions"
+      end
+    end
+  end
 end
