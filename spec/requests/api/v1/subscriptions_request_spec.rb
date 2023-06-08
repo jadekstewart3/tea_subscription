@@ -22,7 +22,21 @@ RSpec.describe "Subscription Request" do
 
   describe "cancel a tea subscription" do
     it "changes the customer subscription to inactive" do
+      customer = create(:customer)
+      subscription = create(:subscription)
+      customer_subscription = create(:customer_subscription, subscription: subscription, customer: customer, status: 0)
+
+      customer_subscription_params =  { 
+                                        status: 1
+                                      }
+
+			headers = { "CONTENT_TYPE" => "application/json" }
       
+      patch "/api/v1/customers/#{customer.id}/subscriptions/#{subscription.id}", headers: headers, params: JSON.generate(customer_subscription_params)
+
+      expect(response).to be_successful
+      customer_subscription.reload
+      expect(customer_subscription.status).to eq("inactive")
     end
   end
 end
